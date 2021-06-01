@@ -1,8 +1,8 @@
 const express = require('express')
 
 // TODO: Remove this
-const dotenv = require('dotenv')
-dotenv.config()
+// const dotenv = require('dotenv')
+// dotenv.config()
 
 const cors = require('cors')
 // Import routes
