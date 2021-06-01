@@ -43,13 +43,14 @@ export default function Login() {
 
   const onSubmit = async (values) => {
     const d = await fetcher('POST', '/api/login', values)
-
-    if (typeof localStorage !== 'undefined') {
-      localStorage.setItem('token', d?.token)
-      localStorage.setItem('username', values.username)
-      localStorage.setItem('details', JSON.stringify(d?.details))
+    if (!d?.message?.includes('error')) {
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('token', d?.token)
+        localStorage.setItem('username', values.username)
+        localStorage.setItem('details', JSON.stringify(d?.details))
+      }
+      router.push('/')
     }
-    router.push('/')
   }
 
   return (

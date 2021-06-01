@@ -55,8 +55,8 @@ module.exports = {
       const data = await db.query('SELECT * FROM users WHERE username = $1', [
         username,
       ])
-      const { pass, ...userDetails } = data.rows[0]
-      const validPassword = await bcrypt.compare(password, pass)
+      const userDetails = data.rows[0]
+      const validPassword = await bcrypt.compare(password, userDetails.pass)
       const token = jwt.sign({ userid: userDetails.userid }, 'hehehe')
       if (validPassword) {
         res.status(200).json({
@@ -65,7 +65,7 @@ module.exports = {
           details: userDetails,
         })
       } else {
-        res.status(400).json({ error: 'Invalid Password' })
+        res.status(400).json({ message: 'error in loggin in' })
       }
     } catch (error) {
       console.log('error', error)

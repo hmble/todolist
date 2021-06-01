@@ -5,9 +5,9 @@ module.exports = {
     if (typeof localStorage !== 'undefined') {
       token = localStorage.getItem('token')
     }
-    let resp
+    let d
     if (method === 'POST' || method === 'PUT') {
-      resp = await fetch(BASE_PATH + path, {
+      const resp = await fetch(BASE_PATH + path, {
         method: method,
         headers: {
           Authorization: 'Bearer ' + token,
@@ -15,17 +15,19 @@ module.exports = {
         },
         body: JSON.stringify(data),
       })
+      d = await resp.json()
     }
     if (method === 'GET' || method === 'DELETE') {
-      resp = await fetch(BASE_PATH + path, {
+      const resp = await fetch(BASE_PATH + path, {
         method: method,
         headers: {
           Authorization: 'Bearer ' + token,
           'Content-Type': 'application/json',
         },
       })
+      d = await resp.json()
     }
-    const d = await resp.json()
+    // const d = await resp.json()
     return d
   },
   upload: async (file) => {

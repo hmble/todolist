@@ -36,6 +36,9 @@ export default function Header(props) {
   const editProfile = () => {
     router.push('/profile')
   }
+  const register = () => {
+    router.push('/register')
+  }
   return (
     <Center>
       <Box
@@ -63,6 +66,7 @@ export default function Header(props) {
 
             <MenuList>
               <MenuItem onClick={editProfile}>Edit Profile</MenuItem>
+              <MenuItem onClick={register}>Register</MenuItem>
               <MenuItem onClick={logout}>Logout</MenuItem>
             </MenuList>
           </Menu>

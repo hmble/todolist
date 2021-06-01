@@ -46,10 +46,8 @@ export default function Register() {
   const password = useRef({})
   password.current = watch('password', '')
   const onSubmit = async (values) => {
-    console.log(values)
     const resp = await fetcher('POST', '/api/register', values)
 
-    console.log(resp)
     if (typeof localstorage !== 'undefined') {
       localStorage.setItem('token', d.token)
       localStorage.setItem('username', values.username)

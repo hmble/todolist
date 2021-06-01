@@ -31,9 +31,8 @@ export default function HookForm({ onToggle }) {
     if (typeof localStorage !== 'undefined') {
       token = localStorage.getItem('token')
     }
-    const resp = await fetcher('/api/todo/new', data)
-    const d = await resp.json()
-    onToggle()
+    const d = await fetcher('POST', '/api/todo/new', data)
+    // onToggle()
   }
 
   return (
