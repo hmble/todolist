@@ -8,7 +8,7 @@
     "start": "nodemon server/index.js",
     "server": "node server/index.js",
     "client": "cd client && npm install && npm run build && npm run start",
-    "deploy": "concurrently \"npm run server\" \"npm run client\""
+    "deploy": "node server/index.js"
   },
   "keywords": [],
   "author": "",
