@@ -6,7 +6,7 @@ const { Pool, Client } = require('pg')
 //   password: 'hmblesam',
 //   port: 5432,
 // })
-const connectionString = process.env.DATABASE_URL
+const connectionString = process.env.DATABASE_URL + '?sslmode=require'
 const pool = new Pool({
   connectionString,
 })
