@@ -1,4 +1,4 @@
-const BASE_PATH = 'http://localhost:5000'
+const BASE_PATH = 'https://whatodolist.herokuapp.com'
 module.exports = {
   fetcher: async (method, path, data) => {
     let token
