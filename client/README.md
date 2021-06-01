@@ -1,1 +1,0 @@
-# Client App in Nextjs
