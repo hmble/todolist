@@ -9,6 +9,9 @@ const { Pool, Client } = require('pg')
 const connectionString = process.env.DATABASE_URL + '?sslmode=require'
 const pool = new Pool({
   connectionString,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 })
 
 // module.exports = pool;
