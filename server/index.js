@@ -12,7 +12,7 @@ const uploadRoute = require('./routes/upload.route')
 const middleware = require('./middleware')
 
 const app = express()
-const port = 5000
+const port = process.env.PORT || 5000
 
 // use bodyparser
 app.use(cors())
